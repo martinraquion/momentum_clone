@@ -12,6 +12,7 @@ import {
 import { makeStyles } from '@material-ui/core/styles';
 import axios from "axios"
 import EditIcon from '@material-ui/icons/Edit';
+import TodoList from './components/TodoList'
 
 const useStyles = makeStyles(theme => ({
   "@global": {
@@ -277,8 +278,11 @@ useEffect(() => {
           "All will be alright in time"
          </Typography>
 
+
           
         </Container>
+        <TodoList/>
+
       </header>
     </div>
   );
