@@ -185,14 +185,14 @@ useEffect(() => {
           <Fade in={true}
            {...({ timeout: 1000 })}
           >
-          <h1 style={{fontSize: 110, margin: 0}}>{moment().format("LT")}</h1>
+          <h1 style={{fontSize: "6vw", margin: 0}}>{moment().format("LT")}</h1>
           </Fade>
           {lsName?
           <>
            <Fade in={true}
            {...({ timeout: 1000 })}
           >
-          <h2 style={{fontSize: 60, margin: "10px 0px"}}>Hello, {lsName.charAt(0).toUpperCase() + lsName.slice(1).toLowerCase()}.</h2>
+          <h2 style={{fontSize: "5vw", margin: "10px 0px"}}>Hello, {lsName.charAt(0).toUpperCase() + lsName.slice(1).toLowerCase()}.</h2>
           </Fade>
           
 
@@ -201,7 +201,7 @@ useEffect(() => {
            {...({ timeout: 1500 })}
           >
           <div style={{display: "flex", justifyContent: "center", alignItems: "center", width: "100%"}}>
-          <h3 style={{fontSize: 40}}>&bull;&nbsp;{lsMainFocus}</h3>
+          <h3 style={{fontSize: "2.5vw"}}>&bull;&nbsp;{lsMainFocus}</h3>
           <IconButton style={{marginLeft: 10}} onClick={()=>setLsMainFocus("")}>
             <EditIcon style={{color: "white"}}/>
           </IconButton>
