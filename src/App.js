@@ -8,10 +8,12 @@ import LocalTime from "./components/LocalTime";
 import MainFocus from "./components/MainFocus";
 import TodoList from "./components/todo/TodoList";
 
-import TodosContext from "./context"
+import BoomFitContext from "./context"
 import todosReducer from "./reducer"
 
 function App() {
+  const initialState = useContext(BoomFitContext);
+  const [state, dispatch] = useReducer(todosReducer, initialState);
   const [name, setName] = useState("");
   const [mainFocus, setMainFocus] = useState("");
   const [lsName, setLsName] = useState("");
@@ -42,10 +44,9 @@ function App() {
     setLsMainFocus(localStorage.getItem("main_focus"));
   }, [lsName]);
 
-  const initialState = useContext(TodosContext);
-  const [state, dispatch] = useReducer(todosReducer, initialState);
-
+  
   return (
+    <BoomFitContext.Provider value={{state, dispatch}}>
     <div className="App">
       <header
         className="App-header"
@@ -57,12 +58,12 @@ function App() {
       >
         <Container maxWidth="lg">
           <LocalTime />
-          {lsName ? (
+          {state.user.name ? (
             <>
-              <Greetings lsName={lsName} />
+              <Greetings />
               {lsMainFocus ? (
                 <MainFocus
-                  lsMainFocus={lsMainFocus}
+                  lsMainFocus={state.user.mainFocus}
                   setLsMainFocus={setLsMainFocus}
                 />
               ) : (
@@ -74,11 +75,7 @@ function App() {
               )}
             </>
           ) : (
-            <SetName
-              handleNameSubmit={handleNameSubmit}
-              handleSetName={handleSetName}
-              name={name}
-            />
+            <SetName />
           )}
 
           <Typography variant="overline">
@@ -87,11 +84,11 @@ function App() {
         </Container>
         
 
-      <TodosContext.Provider value={{state, dispatch}}>
+      
         <TodoList />
-      </TodosContext.Provider>
       </header>
     </div>
+    </BoomFitContext.Provider>
   );
 }
 

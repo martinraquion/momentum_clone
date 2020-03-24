@@ -1,7 +1,8 @@
 import React from "react";
-import uuid4 from "uuid4"
+import uuid4 from "uuid4";
 
-const TodosContext = React.createContext({
+const BoomFitContext = React.createContext({
+  user: { id: "", name: "", mainFocus: "" },
   todos: [
     { id: uuid4(), text: "Eat Breakfast", complete: false },
     { id: uuid4(), text: "Code Something", complete: false },
@@ -10,4 +11,4 @@ const TodosContext = React.createContext({
   currentTodo: {}
 });
 
-export default TodosContext;
+export default BoomFitContext;

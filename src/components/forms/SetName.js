@@ -1,16 +1,23 @@
-import React from 'react'
+import React, {useContext, useState} from 'react'
 import TextField from "@material-ui/core/TextField"
 import useStyles from "../../styles"
-
-function SetName({ handleNameSubmit, name, handleSetName}) {
+import BoomFitContext from "../../context"
+function SetName() {
     const classes = useStyles() 
+    const {state, dispatch} = useContext(BoomFitContext)
+    const [name, setName] = useState("")
+
+    const handleSubmit = e => {
+      e.preventDefault()
+      dispatch({type: 'SET_NAME', name: name})
+    }
+
     return (
         <div>   
           <h3>What's your name?</h3>
-          <form type="submit" onSubmit={handleNameSubmit}>
+          <form type="submit" onSubmit={handleSubmit}>
           <TextField
             variant="outlined"
-            value={name}
             autoFocus
             style={{width:"60%"}}
             InputProps={{
@@ -32,7 +39,7 @@ function SetName({ handleNameSubmit, name, handleSetName}) {
                 focused: classes.focused
               }
             }}
-            onChange={handleSetName}
+            onChange={e=>setName(e.target.value)}
           />
           </form>
           </div>
