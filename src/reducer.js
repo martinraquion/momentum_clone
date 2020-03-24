@@ -3,7 +3,11 @@ const reducer = (state, action) => {
   switch (action.type) {
     case "SET_NAME": 
       localStorage.setItem("name", action.name)
-      return {...state, user: {...state.user, name: action.name}}
+      return {...state, user: {...state.user, name: action.name}};
+    
+    case "SET_MAIN_FOCUS": 
+      localStorage.setItem("main_focus", action.main_focus)
+      return {...state, user: {...state.user, mainFocus: action.main_focus}};
     
     case "ADD_TODO":
       const newTodo = {

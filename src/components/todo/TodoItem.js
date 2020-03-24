@@ -105,9 +105,9 @@ function TodoItem({ todo, setMainFocus }) {
         </IconButton>
         <IconButton
           size="small"
-          onClick={() => (localStorage.setItem("main_focus", todo.text))}
+          onClick={() => dispatch({type: "SET_MAIN_FOCUS", main_focus: todo.text})}
         >
-          <CenterFocusStrongIcon style={{ fontSize: "1vw", color: "white" }} />
+          <CenterFocusStrongIcon style={{ fontSize: "1vw", color: state.user.mainFocus===todo.text?"green":"white" }} />
         </IconButton>
       </div>
     </div>

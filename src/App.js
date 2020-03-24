@@ -8,86 +8,43 @@ import LocalTime from "./components/LocalTime";
 import MainFocus from "./components/MainFocus";
 import TodoList from "./components/todo/TodoList";
 
-import BoomFitContext from "./context"
-import todosReducer from "./reducer"
+import BoomFitContext from "./context";
+import todosReducer from "./reducer";
 
 function App() {
   const initialState = useContext(BoomFitContext);
   const [state, dispatch] = useReducer(todosReducer, initialState);
-  const [name, setName] = useState("");
-  const [mainFocus, setMainFocus] = useState("");
-  const [lsName, setLsName] = useState("");
-  const [lsMainFocus, setLsMainFocus] = useState("");
-  const handleSetName = e => {
-    setName(e.target.value);
-  };
 
-  const handleNameSubmit = e => {
-    e.preventDefault();
-    localStorage.setItem("name", name);
-    setLsName(localStorage.getItem("name"));
-  };
-
-  const handleSetMainFocus = e => {
-    setMainFocus(e.target.value);
-  };
-
-  const handleMainFocusSubmit = e => {
-    e.preventDefault();
-    setMainFocus(mainFocus)
-    localStorage.setItem("main_focus", mainFocus);
-    setLsMainFocus(localStorage.getItem("main_focus"));
-  };
-
-  useEffect(() => {
-    setLsName(localStorage.getItem("name"));
-    setLsMainFocus(localStorage.getItem("main_focus"));
-  }, [lsName]);
-
-  
   return (
-    <BoomFitContext.Provider value={{state, dispatch}}>
-    <div className="App">
-      <header
-        className="App-header"
-        style={{
-          background:
-            "no-repeat center url('https://images.pexels.com/photos/2098428/pexels-photo-2098428.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')",
-          backgroundSize: "cover"
-        }}
-      >
-        <Container maxWidth="lg">
-          <LocalTime />
-          {state.user.name ? (
-            <>
-              <Greetings />
-              {lsMainFocus ? (
-                <MainFocus
-                  lsMainFocus={state.user.mainFocus}
-                  setLsMainFocus={setLsMainFocus}
-                />
-              ) : (
-                <SetFocus
-                  mainFocus={mainFocus}
-                  handleMainFocusSubmit={handleMainFocusSubmit}
-                  handleSetMainFocus={handleSetMainFocus}
-                />
-              )}
-            </>
-          ) : (
-            <SetName />
-          )}
+    <BoomFitContext.Provider value={{ state, dispatch }}>
+      <div className="App">
+        <header
+          className="App-header"
+          style={{
+            background:
+              "no-repeat center url('https://images.pexels.com/photos/2098428/pexels-photo-2098428.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')",
+            backgroundSize: "cover"
+          }}
+        >
+          <Container maxWidth="lg">
+            <LocalTime />
+            {state.user.name ? (
+              <>
+                <Greetings />
+                {state.user.mainFocus ? <MainFocus /> : <SetFocus />}
+              </>
+            ) : (
+              <SetName />
+            )}
 
-          <Typography variant="overline">
-            "All will be alright in time"
-          </Typography>
-        </Container>
-        
+            <Typography variant="overline">
+              "All will be alright in time"
+            </Typography>
+          </Container>
 
-      
-        <TodoList />
-      </header>
-    </div>
+          <TodoList />
+        </header>
+      </div>
     </BoomFitContext.Provider>
   );
 }
