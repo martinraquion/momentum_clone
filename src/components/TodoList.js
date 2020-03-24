@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Typography, IconButton, Button, Divider, Checkbox, List, Fade } from '@material-ui/core'
+import { Button, Checkbox, Divider, Fade, List, Typography } from '@material-ui/core';
+import React, { useState } from 'react';
 
 function TodoList() {
     const [todoToggle, setTodoToggle] = useState(true)
