@@ -6,7 +6,7 @@ import SetName from "./components/forms/SetName";
 import Greetings from "./components/Greetings";
 import LocalTime from "./components/LocalTime";
 import MainFocus from "./components/MainFocus";
-import TodoList from "./components/TodoList";
+import TodoList from "./components/todo/TodoList";
 
 function App() {
   const [name, setName] = useState("");
