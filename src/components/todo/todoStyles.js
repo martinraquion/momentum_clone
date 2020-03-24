@@ -6,7 +6,6 @@ const todoStyles = makeStyles(theme=>({
         right: 40,
         bottom: 55,
         width: "20vw",
-        // height: 100,
         background: "#272C34",
         borderRadius: 10,
       },
@@ -21,10 +20,17 @@ const todoStyles = makeStyles(theme=>({
     cssLabel: {
         color : 'white',
       },
+
+      editCssLabel: {
+        color : 'white',
+        paddingLeft: 1,
+        fontSize: 14
+        
+      },
       cssOutlinedInput: {
         '&$cssFocused $notchedOutline': {
           borderColor: `${theme.palette.primary.main} !important`,
-        }
+        },
       },
     
       cssFocused: {},

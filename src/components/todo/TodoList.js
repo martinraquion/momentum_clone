@@ -11,7 +11,7 @@ import TodoItem from "./TodoItem";
 import TodoForm from "./TodoForm" 
 import TodosContext from "./context"
 
-function TodoList() {
+function TodoList(props) {
   const classes = todoStyles();
   const [todoToggle, setTodoToggle] = useState(true);
   const { state, dispatch } = useContext(TodosContext);
@@ -31,14 +31,16 @@ function TodoList() {
               <Typography variant="subtitle2">MY TASKS</Typography>
             </div>
             <Divider />
-            <List>
+            <List style={{
+                maxHeight:"60vh",
+                overflowY: "auto",
+            }}>
             {state.todos.length?
               state.todos.map(todo=>(
                 <>
                 <TodoItem 
                   todo={todo}
                 />
-                <Divider/>
                 </>
               ))
               :null
