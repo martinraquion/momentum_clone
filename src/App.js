@@ -32,8 +32,9 @@ function App() {
 
   const handleMainFocusSubmit = e => {
     e.preventDefault();
+    setMainFocus(mainFocus)
     localStorage.setItem("main_focus", mainFocus);
-    setLsName(localStorage.getItem("main_focus"));
+    setLsMainFocus(localStorage.getItem("main_focus"));
   };
 
   useEffect(() => {

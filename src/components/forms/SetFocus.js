@@ -13,7 +13,7 @@ function SetFocus({handleMainFocusSubmit, handleSetMainFocus, mainFocus}) {
         <form type="submit" onSubmit={handleMainFocusSubmit}>
         <TextField
           variant="outlined"
-          value={mainFocus}
+          value={mainFocus?mainFocus:localStorage.getItem("main_focus")}
           autoFocus
           style={{width: "60%"}}
           InputProps={{
