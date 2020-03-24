@@ -1,6 +1,6 @@
-import React, {useContext, useReducer} from 'react'
-import Fade from "@material-ui/core/Fade"
-import BoomFitContext from "../context"
+import Fade from "@material-ui/core/Fade";
+import React, { useContext } from 'react';
+import BoomFitContext from "../context";
 
 
 function Greetings() {

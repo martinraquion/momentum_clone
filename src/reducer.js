@@ -7,7 +7,7 @@ const reducer = (state, action) => {
     
     case "SET_MAIN_FOCUS": 
       localStorage.setItem("main_focus", action.main_focus)
-      return {...state, user: {...state.user, mainFocus: action.main_focus}};
+      return {...state, user: {...state.user, mainFocus: action.main_focus, prevMainFocus: action.prev_focus}};
     
     case "ADD_TODO":
       const newTodo = {

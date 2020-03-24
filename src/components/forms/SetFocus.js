@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react'
+import React, {useState, useContext, useEffect} from 'react'
 import Fade from "@material-ui/core/Fade"
 import TextField from "@material-ui/core/TextField"
 import useStyles from "../../styles"
@@ -13,6 +13,10 @@ function SetFocus() {
       e.preventDefault()
       dispatch({type: "SET_MAIN_FOCUS", main_focus: mainFocus})
     }
+
+    useEffect(() => {
+      setMainFocus(state.user.prevMainFocus)
+    }, [])
     return (  
         <Fade in={true}
         {...({ timeout: 1500 })}

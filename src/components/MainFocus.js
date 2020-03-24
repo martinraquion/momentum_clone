@@ -5,9 +5,9 @@ import EditIcon from "@material-ui/icons/Edit";
 import BoomFitContext from "../context";
 function MainFocus() {
   const { state, dispatch } = useContext(BoomFitContext);
-  
+  const prevFocusHandler = localStorage.getItem("main_focus")
   const handleEditFocus = () =>(
-    dispatch({type: "SET_MAIN_FOCUS", main_focus: ""})
+    dispatch({type: "SET_MAIN_FOCUS", main_focus: "", prev_focus: prevFocusHandler})
   )
 
   return (

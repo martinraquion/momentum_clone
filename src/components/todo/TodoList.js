@@ -1,20 +1,14 @@
-import React, { useState, useContext, useReducer} from "react";
-import {
-  Button,
-  Divider,
-  Fade,
-  List,
-  Typography
-} from "@material-ui/core";
-import todoStyles from "./todoStyles"
+import { Button, Divider, Fade, List, Typography } from "@material-ui/core";
+import React, { useContext, useState } from "react";
+import TodosContext from "../../context";
+import TodoForm from "./TodoForm";
 import TodoItem from "./TodoItem";
-import TodoForm from "./TodoForm" 
-import TodosContext from "../../context"
+import todoStyles from "./todoStyles";
 
-function TodoList(props) {
+function TodoList() {
   const classes = todoStyles();
   const [todoToggle, setTodoToggle] = useState(true);
-  const { state, dispatch } = useContext(TodosContext);
+  const { state } = useContext(TodosContext);
   return (
     <>
       <div style={{ position: "absolute", right: 40, bottom: 15 }}>

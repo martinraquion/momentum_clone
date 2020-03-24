@@ -2,7 +2,6 @@ import React, {useContext, useState} from 'react'
 import TextField from "@material-ui/core/TextField"
 import todoStyles from "./todoStyles"
 import TodosContext from "../../context"
-import AddIcon from "@material-ui/icons/Add"
 
 function TodoForm() {
     const { dispatch } = useContext(TodosContext);

@@ -1,4 +1,4 @@
-import React, {createContext} from "react";
+import {createContext} from "react";
 import uuid4 from "uuid4";
 
 const lsName = localStorage.getItem("name")
@@ -9,7 +9,7 @@ const BoomFitContext = createContext({
     id: uuid4(), 
     name: lsName? lsName: "",
     mainFocus: lsMainFocus? lsMainFocus:"",
-
+    prevMainFocus: ""
   },
   todos: [
     { id: uuid4(), text: "Eat Breakfast", complete: false },

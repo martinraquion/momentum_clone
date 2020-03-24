@@ -4,7 +4,7 @@ import useStyles from "../../styles"
 import BoomFitContext from "../../context"
 function SetName() {
     const classes = useStyles() 
-    const {state, dispatch} = useContext(BoomFitContext)
+    const {dispatch} = useContext(BoomFitContext)
     const [name, setName] = useState("")
 
     const handleSubmit = e => {

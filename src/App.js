@@ -1,5 +1,5 @@
 import { Container, Typography } from "@material-ui/core";
-import React, { useEffect, useState, useContext, useReducer } from "react";
+import React, { useContext, useReducer } from "react";
 import "./App.css";
 import SetFocus from "./components/forms/SetFocus";
 import SetName from "./components/forms/SetName";
@@ -7,9 +7,9 @@ import Greetings from "./components/Greetings";
 import LocalTime from "./components/LocalTime";
 import MainFocus from "./components/MainFocus";
 import TodoList from "./components/todo/TodoList";
-
 import BoomFitContext from "./context";
 import todosReducer from "./reducer";
+
 
 function App() {
   const initialState = useContext(BoomFitContext);
