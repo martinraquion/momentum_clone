@@ -1,5 +1,5 @@
 import { Container, Typography } from "@material-ui/core";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext, useReducer } from "react";
 import "./App.css";
 import SetFocus from "./components/forms/SetFocus";
 import SetName from "./components/forms/SetName";
@@ -7,6 +7,9 @@ import Greetings from "./components/Greetings";
 import LocalTime from "./components/LocalTime";
 import MainFocus from "./components/MainFocus";
 import TodoList from "./components/todo/TodoList";
+
+import TodosContext from "./components/todo/context"
+import todosReducer from "./components/todo/reducer"
 
 function App() {
   const [name, setName] = useState("");
@@ -37,6 +40,9 @@ function App() {
     setLsName(localStorage.getItem("name"));
     setLsMainFocus(localStorage.getItem("main_focus"));
   }, [lsName]);
+
+  const initialState = useContext(TodosContext);
+  const [state, dispatch] = useReducer(todosReducer, initialState);
 
   return (
     <div className="App">
@@ -78,7 +84,11 @@ function App() {
             "All will be alright in time"
           </Typography>
         </Container>
+        
+
+      <TodosContext.Provider value={{state, dispatch}}>
         <TodoList />
+      </TodosContext.Provider>
       </header>
     </div>
   );
