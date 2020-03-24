@@ -8,8 +8,8 @@ import LocalTime from "./components/LocalTime";
 import MainFocus from "./components/MainFocus";
 import TodoList from "./components/todo/TodoList";
 
-import TodosContext from "./components/todo/context"
-import todosReducer from "./components/todo/reducer"
+import TodosContext from "./context"
+import todosReducer from "./reducer"
 
 function App() {
   const [name, setName] = useState("");

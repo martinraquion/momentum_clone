@@ -9,7 +9,7 @@ import {
 import todoStyles from "./todoStyles"
 import TodoItem from "./TodoItem";
 import TodoForm from "./TodoForm" 
-import TodosContext from "./context"
+import TodosContext from "../../context"
 
 function TodoList(props) {
   const classes = todoStyles();
