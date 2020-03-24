@@ -22,7 +22,7 @@ function TodoList() {
         <Fade in={true} {...{ timeout: 300 }}>
           <div className={classes.container}>
             <div style={{ display: "flex", padding: 10 }}>
-              <Typography variant="subtitle2">MY TASKS</Typography>
+              <Typography variant="subtitle1">TODAY</Typography>
             </div>
             <Divider />
             <List style={{
@@ -40,6 +40,7 @@ function TodoList() {
               :null
             }
             </List>
+            <Divider />
             <TodoForm />
           </div>
         </Fade>

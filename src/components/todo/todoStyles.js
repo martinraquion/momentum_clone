@@ -14,7 +14,7 @@ const todoStyles = makeStyles(theme=>({
         alignItems: "center",
     },
     todoActions: {
-      padding: 5
+      padding: "0px 5px 0 5px"
     },
 
     cssLabel: {
@@ -37,7 +37,7 @@ const todoStyles = makeStyles(theme=>({
     
       notchedOutline: {
         borderWidth: '1px',
-        borderColor: '#272C34 !important ',
+        borderColor: 'transparent !important ',
         
       },
       

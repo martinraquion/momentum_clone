@@ -16,7 +16,7 @@ function SetFocus() {
 
     useEffect(() => {
       setMainFocus(state.user.prevMainFocus)
-    }, [])
+    }, [state.user.prevMainFocus])
     return (  
         <Fade in={true}
         {...({ timeout: 1500 })}
