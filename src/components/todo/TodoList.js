@@ -9,6 +9,7 @@ function TodoList() {
   const classes = todoStyles();
   const [todoToggle, setTodoToggle] = useState(true);
   const { state } = useContext(TodosContext);
+  
   return (
     <>
       <div style={{ position: "absolute", right: 30, bottom: 15 }}>
