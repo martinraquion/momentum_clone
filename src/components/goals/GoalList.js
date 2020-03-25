@@ -3,6 +3,8 @@ import React, { useContext, useState } from "react";
 import TodosContext from "../../context";
 import goalsStyles from "./goalsStyles";
 import GoalItem from "./GoalItem"
+import GoalForm from "./GoalForm"
+
 function GoalList() {
   const classes = goalsStyles();
   const [goalsToggle, setGoalsToggle] = useState(true);
@@ -19,9 +21,7 @@ function GoalList() {
       {goalsToggle ? (
         <Fade in={true} {...{ timeout: 300 }}>
           <div className={classes.container}>
-          <div style={{ display: "flex", padding: 10 }}>
-              <Typography variant="subtitle1">TODAY</Typography>
-            </div>
+            <GoalForm />
             <Divider />
             <List style={{
                 maxHeight:"60vh",
@@ -29,10 +29,10 @@ function GoalList() {
                 padding: 0
             }}>
             {state.tags.length?
-              state.tags.map(tags=>(
-                <>
-                   <GoalItem tags={tags}/>
-                </>
+              state.tags.map(tags =>(
+                <div key={tags.id}>
+                   <GoalItem tags={tags} />
+                </div>
               ))
               :null
             }

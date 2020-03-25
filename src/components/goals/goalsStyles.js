@@ -14,10 +14,12 @@ const goalsStyles = makeStyles(theme=>({
         display: "flex", 
         width: "100%",
         alignItems: "center",
-        padding: "0px 5px 0px 5px"
+        justifyContent: "space-between",
+        padding: "5px 5px 5px 5px"
     },
     todoActions: {
-      padding: "0px 5px 0 5px"
+      padding: "0px 5px 0 5px",
+      display: "flex"
     },
 
     cssLabel: {

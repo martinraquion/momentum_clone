@@ -32,11 +32,11 @@ function TodoList() {
             {state.todos.length?
               state.todos.map(todo=>(
                 todo.user_id === state.user.user_id?
-                <>
+                <div key={todo.id}>
                 <TodoItem 
                   todo={todo}
                 />
-                </>
+                </div>
                 :null
               ))
               :null

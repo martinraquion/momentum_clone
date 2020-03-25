@@ -17,9 +17,6 @@ function TodoItem({ todo  }) {
 
   const [showOptions, setShowOptions] = useState(false)
 
-  const handleEdit = todo => {
-    dispatch({ type: "UPDATE_TODO", payload: todo, text: editText });
-  };
   return (
     <div
       style={{
@@ -39,7 +36,10 @@ function TodoItem({ todo  }) {
             style={{ color: "#fff" }}
             onChange={() => dispatch({ type: "TOGGLE_TODO", payload: todo })}
           />
-          <form onSubmit={() => handleEdit(todo)}>
+          <form onSubmit={e => {
+              e.preventDefault()
+              dispatch({ type: "UPDATE_TODO", payload: todo, text: editText });
+              }}>
             <TextField
               variant="outlined"
               autoFocus

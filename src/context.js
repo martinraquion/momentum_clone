@@ -24,7 +24,8 @@ const BoomFitContext = createContext({
     { id: uuid4(), user_id: 914, tag_id: 3, text: "other user's todo", complete: false },
     { id: uuid4(), user_id: 914, tag_id: 2, text: "another user's todo", complete: false }
   ],
-  currentTodo: {}
+  currentTodo: {},
+  currentGoal: {}
 });
 
 export default BoomFitContext;
