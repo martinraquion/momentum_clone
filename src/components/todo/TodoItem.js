@@ -46,7 +46,7 @@ function TodoItem({ todo, setMainFocus }) {
               size="small"
               style={{
                 textDecoration: todo.complete ? "line-through" : "none",
-                color: todo.complete? "#3C4148":"white"
+                color: "#3C4148"
               }}
               onChange={e => setEditText(e.target.value)}
               onBlur={e =>

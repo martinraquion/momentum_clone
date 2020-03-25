@@ -11,10 +11,15 @@ const BoomFitContext = createContext({
     mainFocus: lsMainFocus? lsMainFocus:"",
     prevMainFocus: ""
   },
+  tags: [
+    {id: uuid4(), tag_id: 1, title: "Trendy"},
+    {id: uuid4(), tag_id: 2, title: "Shift 44"},
+    {id: uuid4(), tag_id: 3, title: "Billing Portal"}
+  ],
   todos: [
-    { id: uuid4(), text: "Eat Breakfast", complete: false },
-    { id: uuid4(), text: "Code Something", complete: false },
-    { id: uuid4(), text: "Sleep Early", complete: true }
+    { id: uuid4(), tag_id: 1, text: "send trends in email", complete: false},
+    { id: uuid4(), tag_id: 2, text: "add graph in admin", complete: false },
+    { id: uuid4(), tag_id: 3, text: "design interface", complete: true }
   ],
   currentTodo: {}
 });
