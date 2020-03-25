@@ -1,4 +1,4 @@
-import { Checkbox, Typography } from "@material-ui/core";
+import { Checkbox, Typography, Chip } from "@material-ui/core";
 import IconButton from "@material-ui/core/IconButton";
 import TextField from "@material-ui/core/TextField";
 import CenterFocusStrongIcon from '@material-ui/icons/CenterFocusStrong';
@@ -87,16 +87,29 @@ function TodoItem({ todo, setMainFocus }) {
             style={{ color: state.user.mainFocus===todo.text?"#C786E1":"white" }}
             onChange={() => dispatch({ type: "TOGGLE_TODO", payload: todo })}
           />
+          <div style={{display: "flex", flexDirection: "column", alignItems: "flex-start"}}>
           <Typography
             onClick={() => dispatch({ type: "CURRENT_TODO", payload: todo })}
             variant="subtitle2"
             style={{ 
               textDecoration: todo.complete ? "line-through" : "none",
-              color: todo.complete? "#939599":"white"
+              color: todo.complete? "#939599":"white",
+              marginRight: 10
             }}
           >
             {todo.text}
           </Typography>
+          <Chip 
+            label={state.tags.map(tag=>tag.tag_id===todo.tag_id?tag.title: null)} 
+            size="small" 
+            color={todo.complete? "default": "primary"}
+            style={{
+              height: 16, 
+              fontSize: 10,
+              textDecoration: todo.complete? "line-through": "none"
+            }}
+         />
+         </div>
         </div>
       )}
       {showOptions? 

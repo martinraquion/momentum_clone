@@ -12,6 +12,7 @@ const reducer = (state, action) => {
     case "ADD_TODO":
       const newTodo = {
         id: uuid4(),
+        tag_id: 1,
         text: action.payload,
         complete: false
       };

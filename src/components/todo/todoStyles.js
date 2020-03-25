@@ -6,12 +6,14 @@ const todoStyles = makeStyles(theme=>({
         right: 40,
         bottom: 55,
         width: "20vw",
-        background: "#272C34",
+        background: "rgb(39,44,52, 0.6)",
+        opacity: 0.5,
         borderRadius: 10,
       },
     todoItemContainer: {
         display: "flex", 
         alignItems: "center",
+        padding: "5px 0px 5px 0px"
     },
     todoActions: {
       padding: "0px 5px 0 5px"
