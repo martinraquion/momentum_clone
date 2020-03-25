@@ -9,9 +9,10 @@ function TodoList() {
   const classes = todoStyles();
   const [todoToggle, setTodoToggle] = useState(true);
   const { state } = useContext(TodosContext);
+  
   return (
     <>
-      <div style={{ position: "absolute", right: 40, bottom: 15 }}>
+      <div style={{ position: "absolute", right: 30, bottom: 15 }}>
         <Button onClick={() => setTodoToggle(!todoToggle)}>
           <Typography variant="overline" style={{ color: "#fff" }}>
             My Tasks
@@ -31,11 +32,13 @@ function TodoList() {
             }}>
             {state.todos.length?
               state.todos.map(todo=>(
-                <>
+                todo.user_id === state.user.user_id?
+                <div key={todo.id}>
                 <TodoItem 
                   todo={todo}
                 />
-                </>
+                </div>
+                :null
               ))
               :null
             }

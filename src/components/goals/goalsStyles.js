@@ -1,22 +1,25 @@
 import {makeStyles} from "@material-ui/core/styles"
 
-const todoStyles = makeStyles(theme=>({
+const goalsStyles = makeStyles(theme=>({
     container:{
         position: "absolute",
-        right: 30,
-        bottom: 55,
+        left: 30,
+        top: 55,
         width: "25vw",
         background: "rgb(39,44,52, 0.6)",
         opacity: 0.5,
         borderRadius: 10,
       },
-    todoItemContainer: {
+    goalItemContainer: {
         display: "flex", 
+        width: "100%",
         alignItems: "center",
-        padding: "5px 0px 5px 0px"
+        justifyContent: "space-between",
+        padding: "5px 5px 5px 5px"
     },
     todoActions: {
-      padding: "0px 5px 0 5px"
+      padding: "0px 5px 0 5px",
+      display: "flex"
     },
 
     cssLabel: {
@@ -50,4 +53,4 @@ const todoStyles = makeStyles(theme=>({
 
 }))
 
-export default todoStyles
+export default goalsStyles

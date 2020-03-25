@@ -12,6 +12,8 @@ const reducer = (state, action) => {
     case "ADD_TODO":
       const newTodo = {
         id: uuid4(),
+        user_id: state.user.user_id,
+        tag_id: action.tag,
         text: action.payload,
         complete: false
       };
@@ -44,7 +46,41 @@ const reducer = (state, action) => {
       );
       return { ...state, todos: updateTodos, currentTodo: {} };
 
-    default:
+    case "ADD_GOAL":
+       const newGoal = {
+         id: uuid4(), 
+         tag_id: state.tags.length+1, 
+         title: action.payload
+        }
+        ;
+      const addedGoal = [...state.tags, newGoal ];
+      return { ...state, tags: addedGoal };
+      
+      case "REMOVE_GOAL":
+      const filteredGoals = state.tags.filter(t => 
+        t.tag_id !== action.payload.tag_id 
+      )
+      const filterTodoFromGoals = state.todos.filter(t=>
+        t.tag_id !== action.payload.tag_id 
+      )
+      return {...state, tags: filteredGoals, todos: filterTodoFromGoals}
+      
+      case "CURRENT_GOAL":
+        return {
+          ...state,
+          currentGoal: action.payload
+        };
+
+      case "UPDATE_GOAL":
+        const updateGoals = state.tags.map(g=>
+          g.id === action.payload.id
+            ? {...action.payload, title: action.title}
+            :g
+        )
+
+      return { ...state, tags: updateGoals, currentGoal: {} };
+      
+      default:
       return state;
   }
 };
