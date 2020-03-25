@@ -1,47 +1,44 @@
 import { Button, Divider, Fade, List, Typography } from "@material-ui/core";
 import React, { useContext, useState } from "react";
 import TodosContext from "../../context";
-import TodoForm from "./TodoForm";
-import TodoItem from "./TodoItem";
-import todoStyles from "./todoStyles";
-
-function TodoList() {
-  const classes = todoStyles();
-  const [todoToggle, setTodoToggle] = useState(true);
+import goalsStyles from "./goalsStyles";
+import GoalItem from "./GoalItem"
+function GoalList() {
+  const classes = goalsStyles();
+  const [goalsToggle, setGoalsToggle] = useState(true);
   const { state } = useContext(TodosContext);
   return (
     <>
-      <div style={{ position: "absolute", right: 30, bottom: 15 }}>
-        <Button onClick={() => setTodoToggle(!todoToggle)}>
+      <div style={{ position: "absolute", left: 30, top: 15 }}>
+        <Button onClick={() => setGoalsToggle(!goalsToggle)}>
           <Typography variant="overline" style={{ color: "#fff" }}>
-            My Tasks
+            Goals
           </Typography>
         </Button>
       </div>
-      {todoToggle ? (
+      {goalsToggle ? (
         <Fade in={true} {...{ timeout: 300 }}>
           <div className={classes.container}>
-            <div style={{ display: "flex", padding: 10 }}>
-              <Typography variant="subtitle1">TODAY</Typography>
+            <div style={{ display: "flex", padding: "10px" }}>
+              <Typography variant="subtitle1">BoomFit Goals</Typography>
             </div>
             <Divider />
             <List style={{
                 maxHeight:"60vh",
                 overflowY: "auto",
+                padding: 0
             }}>
-            {state.todos.length?
-              state.todos.map(todo=>(
+            {state.tags.length?
+              state.tags.map(tags=>(
                 <>
-                <TodoItem 
-                  todo={todo}
-                />
+                   <GoalItem tags={tags}/>
                 </>
               ))
               :null
             }
             </List>
             <Divider />
-            <TodoForm />
+            {/* <TodoForm /> */}
           </div>
         </Fade>
       ) : null}
@@ -49,4 +46,4 @@ function TodoList() {
   );
 }
 
-export default TodoList;
+export default GoalList;

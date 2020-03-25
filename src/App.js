@@ -7,6 +7,7 @@ import Greetings from "./components/Greetings";
 import LocalTime from "./components/LocalTime";
 import MainFocus from "./components/MainFocus";
 import TodoList from "./components/todo/TodoList";
+import GoalList from "./components/goals/GoalList"
 import BoomFitContext from "./context";
 import todosReducer from "./reducer";
 
@@ -41,7 +42,7 @@ function App() {
               "All will be alright in time"
             </Typography>
           </Container>
-
+          <GoalList />
           <TodoList />
         </header>
       </div>

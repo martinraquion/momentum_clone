@@ -10,7 +10,7 @@ import todoStyles from "./todoStyles";
 import Fade from '@material-ui/core/Fade';
 import Tooltip from "@material-ui/core/Tooltip"
 
-function TodoItem({ todo, setMainFocus }) {
+function TodoItem({ todo  }) {
   const classes = todoStyles();
   const { state, dispatch } = useContext(TodosContext);
   const [editText, setEditText] = useState("");
