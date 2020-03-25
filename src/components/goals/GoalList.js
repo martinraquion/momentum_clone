@@ -19,8 +19,8 @@ function GoalList() {
       {goalsToggle ? (
         <Fade in={true} {...{ timeout: 300 }}>
           <div className={classes.container}>
-            <div style={{ display: "flex", padding: "10px" }}>
-              <Typography variant="subtitle1">BoomFit Goals</Typography>
+          <div style={{ display: "flex", padding: 10 }}>
+              <Typography variant="subtitle1">TODAY</Typography>
             </div>
             <Divider />
             <List style={{

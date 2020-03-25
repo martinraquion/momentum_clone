@@ -5,7 +5,7 @@ const todoStyles = makeStyles(theme=>({
         position: "absolute",
         right: 30,
         bottom: 55,
-        width: "20vw",
+        width: "25vw",
         background: "rgb(39,44,52, 0.6)",
         opacity: 0.5,
         borderRadius: 10,

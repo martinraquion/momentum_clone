@@ -13,7 +13,6 @@ const goalsStyles = makeStyles(theme=>({
     goalItemContainer: {
         display: "flex", 
         width: "100%",
-        background: "rgb(55, 62, 73, 0.6)",
         alignItems: "center",
         padding: "0px 5px 0px 5px"
     },
